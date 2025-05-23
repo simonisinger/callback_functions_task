@@ -4,18 +4,33 @@ import 'package:flutter/material.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
+  void printTextFields(String text) {
+    debugPrint(text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          spacing: 16,
-          children: [
-            InputCounterBox(),
-            InputCounterBox(),
-            InputCounterBox(),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            spacing: 16,
+            children: [
+              InputCounterBox(
+                color: Colors.lightGreen,
+                onChanged: printTextFields,
+              ),
+              InputCounterBox(
+                color: Colors.blueAccent,
+                onChanged: printTextFields,
+              ),
+              InputCounterBox(
+                color: Colors.pinkAccent,
+                onChanged:  printTextFields,
+              ),
+            ],
+          ),
         ),
       ),
     );
